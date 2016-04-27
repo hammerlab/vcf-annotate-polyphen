@@ -24,10 +24,8 @@ setup(
     author="B. Arman Aksoy",
     author_email='arman@aksoy.org',
     url='https://github.com/armish/vcf-annotate-polyphen',
-    packages=[
-        'vcf-annotate-polyphen',
-    ],
-    package_dir={'vcf-annotate-polyphen': 'vap'},
+    packages=['vap'],
+    package_dir={'vap': 'vap'},
     include_package_data=True,
     install_requires=requirements,
     license="ISCL",
