@@ -28,7 +28,7 @@ setup(
     package_dir={'vap': 'vap'},
     include_package_data=True,
     install_requires=requirements,
-    license="ISCL",
+    license="http://www.apache.org/licenses/LICENSE-2.0.html",
     zip_safe=False,
     keywords='vcf-annotate-polyphen',
     classifiers=[
@@ -44,8 +44,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
-    entry_points = {'console_scripts':
-                    ['vcf-annotate-polyphen=vap.cli:main']},
+    entry_points = {'console_scripts': ['vcf-annotate-polyphen=vap.cli:main']},
     test_suite='tests',
     tests_require=test_requirements
 )
