@@ -50,6 +50,8 @@ which manifests itself for each variant description:
 ...
 ```
 
+Here is an annotated VCF: [example/TCGA-55-6543.annotated.vcf](example/TCGA-55-6543.annotated.vcf).
+
 ### Example usage
 ```
 $ cd example/
