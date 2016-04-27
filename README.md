@@ -12,7 +12,7 @@ $ pip install vcf-annotate-polyphen
 
 ### via Source Code
 ```
-$ git checkout https://github.com/armish/vcf-annotate-polyphen.git
+$ git checkout https://github.com/hammerlab/vcf-annotate-polyphen.git
 $ cd vcf-annotate-polyphen/
 $ python setup.py
 ```

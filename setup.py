@@ -23,7 +23,7 @@ setup(
     long_description=readme,
     author="B. Arman Aksoy",
     author_email='arman@aksoy.org',
-    url='https://github.com/armish/vcf-annotate-polyphen',
+    url='https://github.com/hammerlab/vcf-annotate-polyphen',
     packages=['vap'],
     package_dir={'vap': 'vap'},
     include_package_data=True,
