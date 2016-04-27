@@ -1,40 +1,33 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-
-with open('README.rst') as readme_file:
+with open('README.md') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
-
 requirements = [
-    # TODO: put package requirements here
+    "pyvcf",
+    "sqlalchemy"
 ]
 
-test_requirements = [
-    # TODO: put package test requirements here
-]
+test_requirements = []
 
 setup(
     name='vcf-annotate-polyphen',
     version='0.1.0',
     description="a tool to annotate human VCF files with PolyPhen2 effect measures",
-    long_description=readme + '\n\n' + history,
+    long_description=readme,
     author="B. Arman Aksoy",
     author_email='arman@aksoy.org',
     url='https://github.com/armish/vcf-annotate-polyphen',
     packages=[
         'vcf-annotate-polyphen',
     ],
-    package_dir={'vcf-annotate-polyphen':
-                 'vcf-annotate-polyphen'},
+    package_dir={'vcf-annotate-polyphen': 'vap'},
     include_package_data=True,
     install_requires=requirements,
     license="ISCL",
@@ -53,6 +46,8 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
+    entry_points = {'console_scripts':
+                    ['vcf-annotate-polyphen=vap.cli:main']},
     test_suite='tests',
     tests_require=test_requirements
 )
