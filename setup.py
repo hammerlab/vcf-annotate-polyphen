@@ -18,7 +18,7 @@ test_requirements = []
 
 setup(
     name='vcf-annotate-polyphen',
-    version='0.1.0',
+    version='0.1.1',
     description="a tool to annotate human VCF files with PolyPhen2 effect measures",
     long_description=readme,
     author="B. Arman Aksoy",
