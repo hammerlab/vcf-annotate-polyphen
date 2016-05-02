@@ -18,6 +18,31 @@ $ python setup.py
 ```
 
 ## Usage
+### As a library
+```python
+  import vap  # Vcf-Annotate-Polyphen (VAP)
+
+  import sqlalchemy
+  from sqlalchemy import create_engine
+  engine = creative_engine('sqlite:///polyphen-2.2.2-whess-2011_12.sqlite')
+  conn = engine.connect()
+
+  annotation = vap.annotate_variant(conn, 'chr14', 20344588, 'C', 'A')
+  print ("Gene: {}; Protein: {}; Change: {}; "
+           "HVar Prediction: {} (p: {}); HDiv Prediction: {} (p: {})") \
+           .format(
+            annotation.gene,
+            annotation.protein,
+            annotation.aa_change,
+            annotation.hvar_pred,
+            annotation.hvar_prob,
+            annotation.hdiv_pred,
+            annotation.hdiv_prob)
+  # Gene: OR4K2; Protein: Q8NGD2; Change: H54Q;
+  #  HVar Prediction: benign (p: 0.017); HDiv Prediction: benign (p: 0.008)
+```
+
+### Command line interface
 After installing the package, you can invoke the command line utility as follows:
 
 ```
@@ -44,9 +69,8 @@ which manifests itself for each variant description:
 
 ```
 ...
-#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  SAMPLE
-2       165351172       .       T       A       .       PASS    SOMATIC;VT=SNP;PP2=.,.,.,.,.    GT:AD:BQ:DP:FA:SS       0:11,0:.:11:0.0:0       0/1:3,5:30.0:8:0.625:22       179247908       .       C       G       .       PASS    SOMATIC;VT=SNP;PP2=OSBPL6,Q9BZF3,N593K,probably damaging,0.998  GT:AD:BQ:DP:FA:SS       0:27,2:.:29:0.069:0     0/1:27,4:28.0:31:0.129:2
-7       99796940        .       G       A       .       PASS    SOMATIC;VT=SNP;PP2=STAG3,Q9UJ98,R508Q,benign,0.0        GT:AD:BQ:DP:FA:SS       0:37,0:.:37:0.0:0       0/1:49,10:30.0:59:0.169:2
+2	165351172	.	T	A	.	PASS	SOMATIC;VT=SNP;PP2=.,.,.,.,.,.,.	GT:AD:BQ:DP:FA:SS	0:11,0:.:11:0.0:0	0/1:3,5:30.0:8:0.625:2
+2	179247908	.	C	G	.	PASS	SOMATIC;VT=SNP;PP2=OSBPL6,Q9BZF3,N593K,probably damaging,0.998,probably damaging,1.0	GT:AD:BQ:DP:FA:SS	0:27,2:.:29:0.069:0	0/1:27,4:28.0:31:0.129:2
 ...
 ```
 
@@ -58,6 +82,6 @@ $ cd example/
 # The following file is ~7 GB!!!
 $ wget "ftp://genetics.bwh.harvard.edu/pph2/whess/polyphen-2.2.2-whess-2011_12.sqlite.bz2"
 $ bunzip2 polyphen-2.2.2-whess-2011_12.sqlite.bz2
-$ vcf-annotate-polyphen ./TCGA-55-6543.vcf ./TCGA-55-6543.annotated.vcf
+$ vcf-annotate-polyphen ./polyphen-2.2.2-whess-2011_12.sqlite ./TCGA-55-6543.vcf ./TCGA-55-6543.annotated.vcf
 $ less ./TCGA-55-6543.annotated.vcf
 ```
