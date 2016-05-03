@@ -24,7 +24,7 @@ $ python setup.py
 
   import sqlalchemy
   from sqlalchemy import create_engine
-  engine = creative_engine('sqlite:///polyphen-2.2.2-whess-2011_12.sqlite')
+  engine = create_engine('sqlite:///polyphen-2.2.2-whess-2011_12.sqlite')
   conn = engine.connect()
 
   annotation = vap.annotate_variant(conn, 'chr14', 20344588, 'C', 'A')
