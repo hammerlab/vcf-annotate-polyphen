@@ -21,6 +21,7 @@ setup(
     version='0.1.2',
     description="a tool to annotate human VCF files with PolyPhen2 effect measures",
     long_description=readme,
+    long_description_content_type='text/markdown',
     author="B. Arman Aksoy",
     author_email='arman@aksoy.org',
     url='https://github.com/hammerlab/vcf-annotate-polyphen',
