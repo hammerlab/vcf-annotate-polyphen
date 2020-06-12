@@ -49,7 +49,7 @@ def main():
     for v in reader:
         res = annotate_variant(
                     conn,
-                    'chr{}'.format(v.CHROM),
+                    v.CHROM if v.CHROM.startswith('chr') else 'chr{}'.format(v.CHROM),
                     v.POS,
                     v.REF,
                     v.ALT[0])
